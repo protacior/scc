@@ -8,10 +8,13 @@ import (
 )
 
 func init() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", HomeHandler)
+	http.HandleFunc("/signin", SignInHandler)
+	http.HandleFunc("/signup", SignUpHandler)
+	http.HandleFunc("/search", SearchHandler)
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
 	u := user.Current(c)
 	if u == nil {
