@@ -9,10 +9,13 @@ import (
 
 func init() {
 	http.HandleFunc("/", HomeHandler)
-	http.HandleFunc("/signin", SignInHandler)
-	http.HandleFunc("/signup", SignUpHandler)
-	http.HandleFunc("/search", SearchHandler)
-	http.HandleFunc("/url", VerHandler)
+	http.HandleFunc("/signin/", SignInHandler)
+	http.HandleFunc("/signup/", SignUpHandler)
+	http.HandleFunc("/search/", SearchHandler)
+	http.HandleFunc("/url/", VerHandler)
+}
+
+func VerHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {

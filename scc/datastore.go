@@ -17,8 +17,8 @@ type User struct {
 type Request struct {
 	Name          string
 	Email         string
-	StartDate     Time
-	EndDate       Time
+	StartDate     time.Time
+	EndDate       time.Time
 	LowPrice      int
 	HighPrice     int
 	City          string
@@ -35,7 +35,7 @@ func getUser(c appengine.Context, email string) (usr *User, err error) {
 	return usr, err
 }
 
-func storeUser(c appengine.Context, usr User) error {
+func storeUser(c appengine.Context, usr *User) error {
 	key := datastore.NewKey(c, "User", usr.Email, 0, nil)
 	_, err := datastore.Put(c, key, &usr)
 	return err
