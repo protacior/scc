@@ -7,10 +7,11 @@ import (
 )
 
 type User struct {
-	FirstName string
-	LastName  string
-	Email     string
-	Verified  bool
+	FirstName string // First name of User
+	LastName  string // Last name of User
+	Email     string // Email of User (.yale.edu)
+	Auth      string // Auth: Link for authentication
+	Verified  bool   // Verified: Indicates whether the user has access
 }
 
 type Request struct {

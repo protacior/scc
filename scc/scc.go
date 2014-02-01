@@ -12,6 +12,7 @@ func init() {
 	http.HandleFunc("/signin", SignInHandler)
 	http.HandleFunc("/signup", SignUpHandler)
 	http.HandleFunc("/search", SearchHandler)
+	http.HandleFunc("/url", VerHandler)
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
