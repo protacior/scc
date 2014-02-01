@@ -3,6 +3,7 @@ package scc
 import (
 	"appengine"
 	"appengine/datastore"
+	"time"
 )
 
 type User struct {
@@ -10,6 +11,21 @@ type User struct {
 	LastName  string
 	Email     string
 	Verified  bool
+}
+
+type Request struct {
+	Name          string
+	Email         string
+	StartDate     Time
+	EndDate       Time
+	LowPrice      int
+	HighPrice     int
+	City          string
+	State         string
+	Gender        string
+	GenderDesired string
+	Desired       string
+	Am            string
 }
 
 func getUser(c appengine.Context, email string) (usr *User, err error) {
@@ -25,3 +41,4 @@ func storeUser(c appengine.Context, usr User) error {
 }
 
 // same for "Room Request" but also with sorting (chunks?)
+// Queries : Google App Engine Go
