@@ -12,11 +12,6 @@ type User struct {
 	Verified  bool
 }
 
-// userKey returns the key used for a specific user email address
-func userKey(c appengine.Context, user string) *datastore.Key {
-	return datastore.NewKey(c, "User", user, 0, nil)
-}
-
 func getUser(c appengine.Context, email string) (usr *User, err error) {
 	key := datastore.NewKey(c, "User", email, 0, nil)
 	err = datastore.Get(c, key, &usr)
@@ -28,3 +23,5 @@ func storeUser(c appengine.Context, usr User) error {
 	_, err := datastore.Put(c, key, &usr)
 	return err
 }
+
+// same for "Room Request" but also with sorting (chunks?)
